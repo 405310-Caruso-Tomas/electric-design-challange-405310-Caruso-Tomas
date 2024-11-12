@@ -1,12 +1,10 @@
+import { Module } from "../module";
+
 export interface Budget {
   id?: string;
   client: string;
   date: Date;
-  /* TODO
-     Add collection to hold data about:
-        - zone
-        - moduleType reference that has information about (slots, price, type)
-  */
+  modules: Module[];
 }
 
 export enum Zone {

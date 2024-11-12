@@ -1,1 +1,30 @@
 <!-- BUILD IT FROM HERE https://getbootstrap.com/docs/5.3/content/tables/#striped-rows -->
+<div>
+    <h1>Presupuestos</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Modulos</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let budget of budgets; let i = index">
+                <th scope="row">{{budget.id}}</th>
+                <td>{{budget.client}}</td>
+                <td>{{budget.date | date:'dd/MM/yyyy'}}</td>
+                <td>
+                    <ul>
+                        <td>{{budget.modules.length}}</td>
+                    </ul>
+                </td>
+                <td>
+                    <button class="btn btn-info" (click)="goSeeDetails(budget.id)">Ver más</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

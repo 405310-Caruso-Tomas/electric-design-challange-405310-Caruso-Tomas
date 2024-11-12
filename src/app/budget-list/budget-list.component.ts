@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
-
+import { Component, Pipe } from '@angular/core';
+import { ApiService } from '../api.service';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-budget-list',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './budget-list.component.html',
   styleUrl: './budget-list.component.css',
 })
@@ -17,4 +19,24 @@ export class BudgetListComponent {
     - https://angular.dev/guide/http/making-requests#best-practices (async pipe)
     - https://angular.dev/guide/testing/components-scenarios#example-17 (async pipe)
   */
+
+  budgets: any[] = [];
+  
+  constructor(private apiService: ApiService, 
+    private router: Router) {
+
+    
+  }
+
+  ngOnInit() {
+    this.apiService.getBudgets().subscribe((data: any) => {
+      console.log(data);
+      this.budgets = data;
+    });
+  }
+
+  goSeeDetails(id: string) {
+    this.router.navigate(['/budget-details', id]);
+  }
+
 }

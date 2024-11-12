@@ -2,3 +2,106 @@
 https://getbootstrap.com/docs/5.3/forms/form-control/#example
 https://getbootstrap.com/docs/5.3/forms/select/#default
 https://getbootstrap.com/docs/5.3/forms/select/#default -->
+
+<form action="" [formGroup]="budgetForm" onsubmit="">
+    <div class="row py-3" style="padding: 30px;">
+        <div class="col-6">
+            <input type="date" class="date form-control"
+            formControlName="date" placeholder="Fecha">
+            <div class="">
+                @if(budgetForm.get('date')?.touched){
+                    @if(budgetForm.get('date')?.errors?.['dateNonGreather']){
+                        <span style="color: red;">
+                            La fecha no puede ser mayor a la fecha actual
+                        </span>
+                    }@else  {
+                        @if (budgetForm.get('date')?.errors?.['required']) {
+                            <span style="color: red;">La fecha es requerida</span>
+                        }
+                    }        
+                }
+            </div>
+        </div>
+        <div class="col-6">
+            <input type="text" class="form-control"
+            formControlName="client" placeholder="Nombre">
+            <div class="error-container">
+                @if(budgetForm.get('client')?.errors?.['required'] && budgetForm.get('client')?.touched){
+                    <div class="alert alert-danger">
+                        El cliente es requerido
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container border">
+        <div class="text-end"  style="padding-top: 5px;
+        padding-bottom: 5px; width: 100%;">
+            <button class="btn btn-primary" (click)="addModule()">+ Módulo</button>
+        </div>
+        <div class="row" formArrayName="modules">
+            @for(m of modules.controls;track m; let i = $index){
+                <div class="col-6" [formGroupName]="i">
+                    <div class="row" style=" padding-bottom: 20px;">
+                        <div class="col-6">
+                            <select type="select" class="form-control select"
+                            formControlName="type">
+                                @for(t of this.moduleTypes;track $index){
+                                    <option [value]="t.id">{{t.name}}</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <input type="number" class="form-control"
+                            formControlName="price" placeholder="Precio">
+                        </div>
+                    </div>
+                    <div class="row" style = "padding-bottom: 20px;">
+                        <div class="col-6">
+                            <input type="number" class="form-control"
+                            formControlName="place" placeholder="Lugar">
+                        </div>
+                        <div class="col-6">
+                            <select class="form-control" 
+                            formControlName="zone" placeholder="Ambiente">
+                                @for(z of this.zonesMap;track $index){
+                                    <option [value]="z[0]">{{z[1]}}</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-danger" (click)="removeModule(i)">
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+            }
+            <div class="">
+                    @if(budgetForm.get('modules')?.errors?.['required']){
+                        <span style="color: red;" class="alert">
+                            Debe agregar al menos un módulo
+                        </span>
+                    }@else {
+                        @if(budgetForm.get('modules')?.errors?.['atLeast5Modules']){
+                            <span style="color: red;" class="">
+                                Debe agregar al menos 3 módulos
+                            </span>
+                        }@else {
+                            @if(budgetForm.get('modules')?.errors?.['max3SlotsPerBox']){
+                                <span style="color: red;" class="">
+                                    La caja no puede ocupar más de 3 lugares
+                                </span>
+                            }
+                        }
+                    }
+            </div>
+        </div>
+    </div>
+    <div class="text-end mt-3" style="margin-right: 50px;">
+        <button type="submit" class="btn btn-primary" (click)="ngSubmit(budgetForm)" 
+        [disabled]="!budgetForm.valid">
+            Guardar
+        </button>
+    </div>
+</form>

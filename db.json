@@ -1,5 +1,56 @@
 {
-  "budgets": [],
+  "budgets": [
+    {
+      "id": "09b9",
+      "client": "rtutyetrwer",
+      "modules": [
+        {
+          "type": "1",
+          "price": 3,
+          "place": 1,
+          "zone": "Living"
+        },
+        {
+          "type": "1",
+          "price": 4,
+          "place": 2,
+          "zone": "Living"
+        },
+        {
+          "type": "1",
+          "price": 65,
+          "place": 1,
+          "zone": "Cocina"
+        }
+      ],
+      "date": "2024-11-12T02:54:29.249Z"
+    },
+    {
+      "id": "9f93",
+      "client": "asdfsafdgdfghfh",
+      "modules": [
+        {
+          "type": "1",
+          "price": 2,
+          "place": 1,
+          "zone": "Living"
+        },
+        {
+          "type": "1",
+          "price": 1,
+          "place": 7,
+          "zone": "Comedor"
+        },
+        {
+          "type": "1",
+          "price": 32,
+          "place": 27,
+          "zone": "Cocina"
+        }
+      ],
+      "date": "2024-11-05"
+    }
+  ],
   "module-types": [
     {
       "id": "1",
