@@ -49,6 +49,201 @@
         }
       ],
       "date": "2024-11-05"
+    },
+    {
+      "id": "9ecd",
+      "client": "asasdaf",
+      "modules": [
+        {
+          "type": "3",
+          "price": 3,
+          "place": 2,
+          "zone": "Cocina"
+        },
+        {
+          "type": "1",
+          "price": 2,
+          "place": 3,
+          "zone": "Living"
+        },
+        {
+          "type": "6",
+          "price": 2,
+          "place": 32,
+          "zone": "Living"
+        }
+      ],
+      "date": "2024-11-05"
+    },
+    {
+      "id": "b3cc",
+      "client": "dsggsdg",
+      "modules": [
+        {
+          "type": "Interruptor simple",
+          "price": 3,
+          "place": 2,
+          "zone": "Living"
+        },
+        {
+          "type": "Interruptor simple",
+          "price": 3223,
+          "place": 32,
+          "zone": "Comedor"
+        },
+        {
+          "type": "Interruptor simple",
+          "price": 33,
+          "place": 323,
+          "zone": "Living"
+        }
+      ],
+      "date": "2024-11-07"
+    },
+    {
+      "id": "8535",
+      "client": "d",
+      "modules": [
+        {
+          "type": "Toma corriente doble",
+          "zone": "Comedor"
+        },
+        {
+          "type": "USB",
+          "zone": "Living"
+        },
+        {
+          "type": "Interruptor simple",
+          "zone": "Living"
+        }
+      ],
+      "date": "2024-11-05"
+    },
+    {
+      "id": "97fe",
+      "client": "gnfgmn",
+      "modules": [
+        {
+          "type": "Interruptor doble",
+          "zone": "Comedor"
+        },
+        {
+          "type": "Interruptor doble",
+          "zone": "Comedor"
+        },
+        {
+          "type": "Interruptor simple",
+          "zone": "Cocina"
+        }
+      ],
+      "date": "2024-11-08"
+    },
+    {
+      "id": "4bf2",
+      "client": "safsdgfd",
+      "modules": [
+        {
+          "type": "Interruptor doble",
+          "zone": "Dormitorio"
+        },
+        {
+          "type": "Interruptor doble",
+          "zone": "Living"
+        },
+        {
+          "type": "Interruptor simple",
+          "zone": "Comedor"
+        }
+      ],
+      "date": "2024-11-08"
+    },
+    {
+      "id": "bf5f",
+      "client": "d",
+      "modules": [
+        {
+          "type": "Interruptor simple",
+          "zone": "Dormitorio"
+        },
+        {
+          "type": "Interruptor doble",
+          "zone": "Dormitorio"
+        },
+        {
+          "type": "Interruptor doble",
+          "zone": "Living"
+        }
+      ],
+      "date": "2020-03-06"
+    },
+    {
+      "id": "38c0",
+      "client": "dsvgfxjhgj",
+      "modules": [
+        {
+          "type": "Interruptor simple",
+          "zone": "Living"
+        },
+        {
+          "type": "Interruptor simple",
+          "zone": "Living"
+        },
+        {
+          "type": "Interruptor simple",
+          "zone": "Living"
+        }
+      ],
+      "date": "2003-03-04"
+    },
+    {
+      "id": "4324",
+      "client": "dsgfhfjghjf",
+      "modules": [
+        {
+          "type": "Interruptor simple",
+          "price": 1000,
+          "place": 1,
+          "zone": "Living"
+        },
+        {
+          "type": "Interruptor doble",
+          "price": 2000,
+          "place": 2,
+          "zone": "Comedor"
+        },
+        {
+          "type": "Interruptor doble",
+          "price": 2000,
+          "place": 2,
+          "zone": "Living"
+        }
+      ],
+      "date": "2024-11-05"
+    },
+    {
+      "id": "b962",
+      "client": "dsfhgfhdfgh",
+      "modules": [
+        {
+          "type": "Interruptor simple",
+          "price": 1000,
+          "place": 1,
+          "zone": "Living"
+        },
+        {
+          "type": "Interruptor simple",
+          "price": 1000,
+          "place": 1,
+          "zone": "Living"
+        },
+        {
+          "type": "Interruptor simple",
+          "price": 1000,
+          "place": 1,
+          "zone": "Living"
+        }
+      ],
+      "date": "2024-11-04"
     }
   ],
   "module-types": [

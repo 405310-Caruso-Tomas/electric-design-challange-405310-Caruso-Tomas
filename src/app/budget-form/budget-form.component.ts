@@ -43,6 +43,19 @@ export class BudgetFormComponent {
     return this.budgetForm.get('modules') as FormArray;
   }
 
+  changeModuleType() {
+    for (let i = 0; i < this.modules.length; i++) {
+      const module = this.modules.at(i);
+      const type = module.get('type')?.value;
+      for(let z=0;z<this.moduleTypes.length;z++){
+        if(type==this.moduleTypes[z].name){
+          module.get('price')?.setValue(this.moduleTypes[z].price);
+          module.get('place')?.setValue(this.moduleTypes[z].slots);
+        }
+      }
+    }
+  }
+
   removeModule(index: number) {
     this.modules.removeAt(index);
   }
@@ -51,11 +64,10 @@ export class BudgetFormComponent {
     return (control: AbstractControl): ValidationErrors | null => {
       const modules = control.value;
       const moduleTypesOfDTO=modules.map((module:any)=>module.type);
-      console.log(moduleTypesOfDTO);
       let slots=0; 
       for (let i = 0; i < moduleTypesOfDTO.length; i++) {
         for(let z=0;z<this.moduleTypes.length;z++){
-          if(moduleTypesOfDTO[i]===this.moduleTypes[z].id){
+          if(moduleTypesOfDTO[i]===this.moduleTypes[z].name){
             slots=slots+this.moduleTypes[z].slots;  
           }
         }
@@ -75,7 +87,7 @@ export class BudgetFormComponent {
     if(this.budgetForm.valid){
       const today = new Date();
       const formValue = form.value;
-      console.log(formValue);
+      console.log(formValue.modules);
       const budgetDTO:Budget = {
         client: formValue.client ? formValue.client : '',
         modules: formValue.modules ? formValue.modules : [],
@@ -97,7 +109,10 @@ export class BudgetFormComponent {
   addModule() {
     const fg=new FormGroup({
       type: new FormControl('',[Validators.required]),
-      price: new FormControl('',[Validators.required,Validators.min(1)]),
+      price: new FormControl({
+        value: '',
+        disabled: false
+      },[Validators.required,Validators.min(1)]),
       place: new FormControl('',[Validators.required,Validators.min(1)]),
       zone: new FormControl('',[Validators.required]),
     });
@@ -107,9 +122,6 @@ export class BudgetFormComponent {
   dateNonGreather(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const dateControl=control.value;
-      console.log(dateControl);
-      console.log(this.formatDate(new Date()));
-      console.log(dateControl > this.formatDate(new Date()));
       return dateControl > this.formatDate(new Date()) ? { dateNonGreather: true } : null;
     };
   }

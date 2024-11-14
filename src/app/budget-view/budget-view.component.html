@@ -1,3 +1,36 @@
 <!-- BUILD IT FROM HERE https://getbootstrap.com/docs/5.3/components/card/#sizing -->
-<div class="card">
+<div class="card container mt-2 bg-info-subtle">
+    @if(getBudgetById$){
+        <h2>Presupuesto prueba #{{id}}
+        </h2>
+        <h4>Cajas necesarias: </h4>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <!--LIVING = 'Living',
+  COMEDOR = 'Comedor',
+  KITCHEN = 'Cocina',
+  ROOM = 'Dormitorio'-->
+            @for(b of budget?.modules; track $index){
+                @if(b.zone=='Living'){
+                    <h6 class="card-subtitle mb-2 text-muted">Living</h6>
+                }@else {
+                    @if(b.zone=='Comedor'){
+                        <h6 class="card-subtitle mb-2 text-muted">Comedor</h6>
+                    }@else {
+                        @if(b.zone=='Cocina'){
+                            <h6 class="card-subtitle mb-2 text-muted">Cocina</h6>
+                        }@else {
+                            <h6 class="card-subtitle mb-2 text-muted">Dormitorio</h6>
+                        }
+                    }
+                }
+                <p>{{b.type}} ({{b.place}}) - {{b.price | currency}}</p>
+            }
+        </div>
+        <div>
+        </div>
+
+    }@else {
+        <h2>Presupuesto no encontrado</h2>
+    }
 </div>

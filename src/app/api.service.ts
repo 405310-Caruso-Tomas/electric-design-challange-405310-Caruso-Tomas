@@ -28,5 +28,9 @@ export class ApiService {
   getBudgetById(id: string): Observable<any> {
     return this.http.get<any>(`${this.API_URL_budget}/${id}`);
   }
+
+  getTypesById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.API_URL_types}/${id}`);
+  }
   
 }
