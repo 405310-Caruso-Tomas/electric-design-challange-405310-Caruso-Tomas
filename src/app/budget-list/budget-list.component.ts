@@ -4,8 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-budget-list',
-  standalone: true,
-  imports: [CommonModule],
+  standalone: false,
   templateUrl: './budget-list.component.html',
   styleUrl: './budget-list.component.css',
 })
@@ -24,6 +23,7 @@ export class BudgetListComponent {
   
   constructor(private apiService: ApiService, 
     private router: Router) {
+    console.log("entra");
 
     
   }
@@ -36,7 +36,7 @@ export class BudgetListComponent {
   }
 
   goSeeDetails(id: string) {
-    this.router.navigate(['/budget-details', id]);
+    this.router.navigate(['/budget', 'list', 'budget-details', id]);
   }
 
 }

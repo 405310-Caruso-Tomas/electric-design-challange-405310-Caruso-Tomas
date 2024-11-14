@@ -7,8 +7,6 @@ import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-budget-view',
-  standalone: true,
-  imports: [CurrencyPipe],
   templateUrl: './budget-view.component.html',
   styleUrl: './budget-view.component.css',
 })

@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AbstractControl, FormArray, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import {Budget, Zone } from '../models/budget';
-import { ApiService } from '../api.service';
 import { Module } from '../module';
+import { ApiService } from '../api.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-budget-form',
-  standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  standalone: false,
   templateUrl: './budget-form.component.html',
   styleUrl: './budget-form.component.css',
 })
@@ -26,10 +26,11 @@ export class BudgetFormComponent {
   });
   zonesMap: Map<string, Zone> = new Map<string, Zone>();
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService,private router: Router) {
     for (const zone of Object.values(Zone)) {
       this.zonesMap.set(zone, zone);
     }
+
    }
     
   ngOnInit() {
@@ -98,6 +99,7 @@ export class BudgetFormComponent {
         console.log("pasa ",data);
         this.budgetForm.reset();
         alert("Budget created successfully");
+        this.router.navigate(['/budget/list']);
       }),
       (error: any) => {
         console.log("error ",error);

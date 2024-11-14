@@ -244,6 +244,31 @@
         }
       ],
       "date": "2024-11-04"
+    },
+    {
+      "id": "e4b4",
+      "client": "tomas",
+      "modules": [
+        {
+          "type": "Interruptor simple",
+          "price": 1000,
+          "place": 1,
+          "zone": "Comedor"
+        },
+        {
+          "type": "Interruptor simple",
+          "price": 1000,
+          "place": 1,
+          "zone": "Cocina"
+        },
+        {
+          "type": "Interruptor simple",
+          "price": 1000,
+          "place": 1,
+          "zone": "Living"
+        }
+      ],
+      "date": "2024-11-14"
     }
   ],
   "module-types": [
